@@ -1,0 +1,16 @@
+# Ignore Virtual Environment
+venv/
+env/
+
+# Ignore Environment Variables (Security Risk!)
+.env
+backend/.env
+frontend/.env
+*.env
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+
+# Ignore OS files
+.DS_Store
