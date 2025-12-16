@@ -2,7 +2,7 @@ import json
 import os
 from openai import OpenAI
 from dotenv import load_dotenv
-from models import MemoryProfile
+from .models import MemoryProfile
 
 load_dotenv()
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
@@ -91,7 +91,7 @@ class LLMService:
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": query}
             ],
-            temperature=0.1
+            temperature=0.7
         )
 
         personalized_text= pers_response.choices[0].message.content
