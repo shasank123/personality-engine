@@ -1,8 +1,18 @@
 from fastapi import FastAPI, HTTPException
 from .models import MemoryProfile, ChatLogInput, ChatRequest, PersonalityResponse
 from .services import LLMService
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(title="Personality Engine API")
+
+# --- CORS Middleware ---
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allows all connections (Simplest for testing)
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/")
 def health_check():
